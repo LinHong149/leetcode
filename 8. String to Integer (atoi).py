@@ -1,8 +1,12 @@
 class Solution:
     def myAtoi(self, s: str) -> int:
         neg = False
-        # deal with +-
+
         s = s.strip()
+
+        if s == "":
+            return 0
+
         if s[0] == '-':
             neg = True
             s = s[1:]
@@ -10,6 +14,11 @@ class Solution:
             s = s[1:]
 
         print("s",s)
+
+
+        if s == "":
+            return 0
+
         while s[0] == 0:
             s = s[1:]
 
@@ -26,9 +35,8 @@ class Solution:
         if neg:
             i = max(-int(s), -(2**31))
         else:
-            i = min(int(s), 2**31)
+            i = min(int(s), (2**31)-1)
 
         print(i)
         return(i)
-
 
